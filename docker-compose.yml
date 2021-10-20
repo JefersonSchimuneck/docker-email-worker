@@ -15,4 +15,12 @@ services:
     volumes:
       - ./web:/usr/share/nginx/html/
     ports:
-      - 8080:80
+      - 3000:80
+  app:
+    image: python:3.6
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    command: bash ./app.sh
+    ports:
+      - 8080:8080
